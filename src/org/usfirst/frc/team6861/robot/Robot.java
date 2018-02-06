@@ -7,13 +7,15 @@
 
 package org.usfirst.frc.team6861.robot;
 
+//import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
+import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
+//import org.usfirst.frc.team6861.robot.subsystems.Ramp;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team6861.robot.commands.ExampleCommand;
-import org.usfirst.frc.team6861.robot.subsystems.ExampleSubsystem;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,23 +25,32 @@ import org.usfirst.frc.team6861.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static final ExampleSubsystem kExampleSubsystem
-			= new ExampleSubsystem();
-	public static OI m_oi;
+	private  OI m_oi;
+	private  DriveTrain driveTrain;
+	//private Ramp ramp;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
-
+		
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
+
 	@Override
 	public void robotInit() {
 		m_oi = new OI();
-		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		driveTrain=new DriveTrain(m_oi);
+		//ramp=new Ramp(m_oi);
+		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
+		m_chooser = new SendableChooser();
+		//m_chooser.addDefault("DriveStraightAuton", new MoveToSwitchAuton(2,driveTrain));
+		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
+		
+		
+		
 	}
 
 	/**
@@ -51,6 +62,8 @@ public class Robot extends TimedRobot {
 	public void disabledInit() {
 
 	}
+	
+
 
 	@Override
 	public void disabledPeriodic() {
@@ -95,13 +108,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		if (m_autonomousCommand != null) {
-			m_autonomousCommand.cancel();
-		}
+		Scheduler.getInstance().removeAll();
+		
+		
 	}
 
 	/**
@@ -110,6 +119,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		//SmartDashboard.putNumber("ai0", m_oi.getAi0().getVoltage() * 5 / 0.00488);
 	}
 
 	/**
@@ -118,4 +128,21 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	public DriveTrain getDriveTrain() {
+		return driveTrain;
+	}
+
+	public void setDriveTrain(DriveTrain driveTrain) {
+		this.driveTrain = driveTrain;
+	}
+
+	public OI getM_oi() {
+		return m_oi;
+	}
+
+	public void setM_oi(OI m_oi) {
+		this.m_oi = m_oi;
+	}
+	
 }
