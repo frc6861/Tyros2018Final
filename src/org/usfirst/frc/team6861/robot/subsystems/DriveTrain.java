@@ -27,7 +27,7 @@ public class DriveTrain extends Subsystem {
     private  MecanumDrive mecanumDrive;
 	private Joystick joystick;
     // Put  methods for controlling this subsystem
-    // here. Call these from Commands. ok
+    // here. Call these from Commands. ok ok
     public DriveTrain(OI m_oi) {
     	leftFront1 = new WPI_TalonSRX(1);
     	rightFront1 = new WPI_TalonSRX(3);
