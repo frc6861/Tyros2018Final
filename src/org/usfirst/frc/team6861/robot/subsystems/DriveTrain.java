@@ -33,10 +33,10 @@ public class DriveTrain extends Subsystem {
     	rightFront1 = new WPI_TalonSRX(3);
     	leftRear1 = new WPI_TalonSRX(2);
     	rightRear1 = new WPI_TalonSRX(4);
-    	leftFront2 = new WPI_TalonSRX(1);
-    	rightFront2 = new WPI_TalonSRX(3);
-    	leftRear2 = new WPI_TalonSRX(2);
-    	rightRear2 = new WPI_TalonSRX(4);
+    	leftFront2 = new WPI_TalonSRX(5);
+    	rightFront2 = new WPI_TalonSRX(7);
+    	leftRear2 = new WPI_TalonSRX(6);
+    	rightRear2 = new WPI_TalonSRX(8);
     	mecanumDrive = new MecanumDrive(leftFront1,leftRear1,rightFront1,rightRear1);
     	joystick=m_oi.getStick();
     	
