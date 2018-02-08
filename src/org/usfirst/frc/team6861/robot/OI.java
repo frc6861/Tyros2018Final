@@ -20,13 +20,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private  Joystick stick;
-	private CameraServer camera;
-	private AnalogInput ai0;
-	private AnalogInput ai1;
-	private AnalogInput ai2;
-	private AnalogInput ai3;
-	private JoystickButton button7;
-	private JoystickButton button9;
 	public static boolean reverseMotor=false;
 	// private PWMSpeedController spark1;
 	
@@ -39,53 +32,19 @@ public class OI {
 	//	this.spark1 = spark1;
 	//}
 
-	public JoystickButton getButton1() {
-		return button7;
-	}
-
-	public void setButton1(JoystickButton button1) {
-		this.button7 = button1;
-	}
+	
 
 	public OI() {
 		 stick = new Joystick(0);
-		 button7=new JoystickButton(stick,7);
-		 button9=new JoystickButton(stick,9);
-		 //button7.whenPressed(new ToggleMotorDirection(reverseMotor));
-		 //button9.whenPressed(new ToggleMotorDirection(reverseMotor));
-		 CameraServer.getInstance().startAutomaticCapture();
 	}
 
-	public AnalogInput getAi1() {
-		return ai1;
-	}
-
+	
 	public boolean isReverseMotor() {
 		return reverseMotor;
 	}
 
 	public void setReverseMotor(boolean reverseMotor) {
 		this.reverseMotor = reverseMotor;
-	}
-
-	public void setAi1(AnalogInput ai1) {
-		this.ai1 = ai1;
-	}
-
-	public AnalogInput getAi2() {
-		return ai2;
-	}
-
-	public void setAi2(AnalogInput ai2) {
-		this.ai2 = ai2;
-	}
-
-	public AnalogInput getAi3() {
-		return ai3;
-	}
-
-	public void setAi3(AnalogInput ai3) {
-		this.ai3 = ai3;
 	}
 
 	public Joystick getStick() {
@@ -96,22 +55,8 @@ public class OI {
 		this.stick = stick;
 	}
 
-	public CameraServer getCamera() {
-		return camera;
-	}
-
-	public void setCamera(CameraServer camera) {
-		this.camera = camera;
-	}
-
-	public AnalogInput getAi0() {
-		return ai0;
-	}
-
-	public void setAi(AnalogInput ai0) {
-		this.ai0 = ai0;
-	}
 	
+		
 	//// CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
 	//// joystick.
