@@ -4,6 +4,8 @@ package org.usfirst.frc.team6861.robot.subsystems;
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.commands.DriveWithJoyStick;
 
+import com.ctre.CANTalon;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.Joystick;
@@ -16,14 +18,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class DriveTrain extends Subsystem {
 	
-	private  WPI_TalonSRX leftFront1;
-    private  WPI_TalonSRX rightFront1;
-    private  WPI_TalonSRX leftRear1;
-    private  WPI_TalonSRX rightRear1;
-    private  WPI_TalonSRX leftFront2;
-    private  WPI_TalonSRX rightFront2;
-    private  WPI_TalonSRX leftRear2;
-    private  WPI_TalonSRX rightRear2;
+	private  WPI_TalonSRX leftFront1, rightFront1, leftRear1, rightRear1, leftSlaveFront2, rightSlaveFront2, leftSlaveRear2, rightSlaveRear2;
     private  MecanumDrive mecanumDrive;
 	private Joystick joystick;
     // Put  methods for controlling this subsystem
@@ -33,10 +28,14 @@ public class DriveTrain extends Subsystem {
     	rightFront1 = new WPI_TalonSRX(3);
     	leftRear1 = new WPI_TalonSRX(2);
     	rightRear1 = new WPI_TalonSRX(4);
-    	leftFront2 = new WPI_TalonSRX(5);
-    	rightFront2 = new WPI_TalonSRX(7);
-    	leftRear2 = new WPI_TalonSRX(6);
-    	rightRear2 = new WPI_TalonSRX(8);
+    	leftSlaveFront2 = new WPI_TalonSRX(5);
+    	rightSlaveFront2 = new WPI_TalonSRX(7);
+    	leftSlaveRear2 = new WPI_TalonSRX(6);
+    	rightSlaveRear2 = new WPI_TalonSRX(8);
+    	leftSlaveFront2.set(ControlMode.Follower, 0);
+    	rightSlaveFront2.set(ControlMode.Follower, 0);
+    	leftSlaveRear2.set(ControlMode.Follower, 0);
+    	rightSlaveRear2.set(ControlMode.Follower, 0);
     	mecanumDrive = new MecanumDrive(leftFront1,leftRear1,rightFront1,rightRear1);
     	joystick=m_oi.getStick();
     	
@@ -46,6 +45,7 @@ public class DriveTrain extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new DriveWithJoyStick(this,joystick));
+        
            }
    
     public void setMecanumDriveCommand(double ySpeed, double xSpeed, double zRotation, double gyroAngle){
