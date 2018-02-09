@@ -28,6 +28,8 @@ public class MoveToSwitchAuton extends TimedCommand {
     	//driveTrain.setMecanumDriveCommand(1, 1, 1, 0);
     	String gameData;
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
+    	if(gameData==null)
+    		gameData="LLL";
     	if (gameData.charAt(0) == 'L')
     	{
     		driveTrain.setMecanumDriveCommand(-0.5, 0.57, 0, 0);

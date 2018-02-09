@@ -7,10 +7,8 @@
 	
 package org.usfirst.frc.team6861.robot;
 
-//import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
+import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -20,7 +18,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private  Joystick stick;
+	private JoystickButton button7;
+	private JoystickButton button9;
 	public static boolean reverseMotor=false;
+	
 	// private PWMSpeedController spark1;
 	
 	
@@ -36,6 +37,10 @@ public class OI {
 
 	public OI() {
 		 stick = new Joystick(0);
+		 button7=new JoystickButton(stick,7);
+		 button9=new JoystickButton(stick,9);
+		 button7.whenPressed(new ToggleMotorDirection(reverseMotor));
+		 button9.whenPressed(new ToggleMotorDirection(!reverseMotor));
 	}
 
 	

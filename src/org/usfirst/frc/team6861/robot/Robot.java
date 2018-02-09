@@ -7,9 +7,9 @@
 
 package org.usfirst.frc.team6861.robot;
 
-//import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
+import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
-//import org.usfirst.frc.team6861.robot.subsystems.Ramp;
+import org.usfirst.frc.team6861.robot.subsystems.Ramp;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -27,7 +27,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Robot extends TimedRobot {
 	private  OI m_oi;
 	private  DriveTrain driveTrain;
-	//private Ramp ramp;
+	private Ramp ramp;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -41,12 +41,12 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		driveTrain=new DriveTrain(m_oi);
-		//ramp=new Ramp(m_oi);
+		ramp=new Ramp(m_oi);
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
-		//m_chooser.addDefault("DriveStraightAuton", new MoveToSwitchAuton(2,driveTrain));
+		m_chooser.addDefault("DriveStraightAuton", new MoveToSwitchAuton(2,driveTrain));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 		
