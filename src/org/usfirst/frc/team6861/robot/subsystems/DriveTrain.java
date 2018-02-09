@@ -8,6 +8,7 @@ import org.usfirst.frc.team6861.robot.commands.DriveWithJoyStick;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
@@ -23,6 +24,7 @@ public class DriveTrain extends Subsystem {
 
     private  MecanumDrive mecanumDrive;
 	private Joystick joystick;
+	public DigitalInput proximitySensor;
     // Put  methods for controlling this subsystem
     // here. Call these from Commands. ok ok ok
     public DriveTrain(OI m_oi) {
@@ -42,6 +44,7 @@ public class DriveTrain extends Subsystem {
     	rightSlaveRear2.set(ControlMode.Follower, 4);
     	mecanumDrive = new MecanumDrive(leftFront1,leftRear1,rightFront1,rightRear1);
     	joystick=m_oi.getStick();
+    	proximitySensor = m_oi.getProximitySensor();
     	
     }
     
@@ -57,5 +60,6 @@ public class DriveTrain extends Subsystem {
     	SmartDashboard.putNumber("Joystick X value", joystick.getX());
     	SmartDashboard.putNumber("Joystick Y value", joystick.getY());
     	SmartDashboard.putNumber("Joystick Z value", joystick.getZ());
+    	SmartDashboard.putBoolean("Proximity Sensor", proximitySensor.get());
     }
 }
