@@ -19,7 +19,7 @@ public class CrossLineAuton extends TimedCommand {
         requires(driveTrain);
     }
 
-    // Called just before this Command runs the first time
+    // Called just  before this Command runs the first time
     protected void initialize() {
     }
 
