@@ -32,12 +32,12 @@ public class MoveToSwitchAuton extends TimedCommand {
     		gameData="LLL";
     	if (gameData.charAt(0) == 'L')
     	{
-    		while (driveTrain.proximitySensor.get() == true) {
+    		while (driveTrain.getProximitySensor().get() == true) {
     			driveTrain.setMecanumDriveCommand(-0.5, 0.57, 0, 0);
     			}
     		 }
     	else {
-    		while (driveTrain.proximitySensor.get() == true) {
+    		while (driveTrain.getProximitySensor().get() == true) {
     			driveTrain.setMecanumDriveCommand(0.47, 0.55, 0, 0);
     		}
     	}

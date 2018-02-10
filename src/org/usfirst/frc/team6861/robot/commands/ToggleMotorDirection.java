@@ -8,11 +8,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ToggleMotorDirection extends Command {
-	boolean toggle;
-    public ToggleMotorDirection(boolean toggle) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+	private boolean toggle;
+	private OI m_oi;
+	
+    public ToggleMotorDirection(boolean toggle,OI m_oi) {
     	this.toggle=toggle;
+    	this.m_oi=m_oi;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +22,7 @@ public class ToggleMotorDirection extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	OI.reverseMotor=toggle;
+    	m_oi.setReverseMotor(toggle);
     }
     
     

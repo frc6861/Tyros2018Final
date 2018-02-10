@@ -24,10 +24,19 @@ public class DriveTrain extends Subsystem {
 
     private  MecanumDrive mecanumDrive;
 	private Joystick joystick;
-	public DigitalInput proximitySensor;
-    // Put  methods for controlling this subsystem
-    // here. Call these from Commands. ok ok ok
-    public DriveTrain(OI m_oi) {
+	private DigitalInput proximitySensor;
+	
+    public DigitalInput getProximitySensor() {
+		return proximitySensor;
+	}
+
+
+	public void setProximitySensor(DigitalInput proximitySensor) {
+		this.proximitySensor = proximitySensor;
+	}
+
+
+	public DriveTrain(OI m_oi) {
     	leftFront1 = new WPI_TalonSRX(1);
     	rightFront1 = new WPI_TalonSRX(3);
     	leftRear1 = new WPI_TalonSRX(2);
