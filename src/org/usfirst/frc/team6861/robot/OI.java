@@ -23,6 +23,14 @@ public class OI {
 	private  XboxController gamePad;
 	private JoystickButton buttonY;
 	private JoystickButton buttonX;
+	private JoystickButton buttonA;
+	private JoystickButton buttonB;
+	private JoystickButton buttonLB;
+	private JoystickButton buttonRB;
+	private JoystickButton buttonBack;
+	private JoystickButton buttonStart;
+	private JoystickButton buttonClickLeft;
+	private JoystickButton buttonClickRight;
 	private boolean reverseMotor=false;
 	private DigitalInput proximitySensor;
 	private CameraServer camera;
@@ -40,12 +48,21 @@ public class OI {
 
 	public OI() {
 		 gamePad = new XboxController(0);
-		 buttonY=new JoystickButton(gamePad,4);
-		 buttonX=new JoystickButton(gamePad,3);
+		 buttonA = new JoystickButton(gamePad,1);//shoots
+		 buttonB = new JoystickButton(gamePad,2);//no current function
+		 buttonX=new JoystickButton(gamePad,3);//this button decreases ramp angle
+		 buttonY=new JoystickButton(gamePad,4);//this button increases ramp angle
+		 buttonLB = new JoystickButton(gamePad,5);//conveyer belt down and expel cube
+		 buttonRB = new JoystickButton(gamePad,6);//conveyer belt up and intake cube
+		 buttonBack = new JoystickButton(gamePad,7);//Retract Climb
+		 buttonStart = new JoystickButton(gamePad,8);//extend climb
+		 buttonClickLeft = new JoystickButton(gamePad,9);
+		 buttonClickRight = new JoystickButton(gamePad,10);
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
 		 CameraServer.getInstance().startAutomaticCapture();
+		 
 	}
 
 	
