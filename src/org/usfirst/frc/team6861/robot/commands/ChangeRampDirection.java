@@ -1,13 +1,7 @@
 package org.usfirst.frc.team6861.robot.commands;
 
-import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
-
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**

@@ -8,10 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ForwardTowardsSwitch extends Command {
-	 private DriveTrain driveTrain;
+	private DriveTrain driveTrain;
     public ForwardTowardsSwitch() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     	this.driveTrain=driveTrain;
         requires(driveTrain);
     }
