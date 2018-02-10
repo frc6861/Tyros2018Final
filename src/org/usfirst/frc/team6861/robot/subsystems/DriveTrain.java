@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,12 +22,10 @@ public class DriveTrain extends Subsystem {
 	
 
 	private  WPI_TalonSRX leftFront1, rightFront1, leftRear1, rightRear1, leftSlaveFront2, rightSlaveFront2, leftSlaveRear2, rightSlaveRear2;
-
     private  MecanumDrive mecanumDrive;
-	private Joystick joystick;
+    private XboxController gamePad;
 	private DigitalInput proximitySensor;
-	
-    public DigitalInput getProximitySensor() {
+	public DigitalInput getProximitySensor() {
 		return proximitySensor;
 	}
 
@@ -52,7 +51,7 @@ public class DriveTrain extends Subsystem {
     	leftSlaveRear2.set(ControlMode.Follower, 2);
     	rightSlaveRear2.set(ControlMode.Follower, 4);
     	mecanumDrive = new MecanumDrive(leftFront1,leftRear1,rightFront1,rightRear1);
-    	joystick=m_oi.getStick();
+    	gamePad=m_oi.getGamePad();
     	proximitySensor = m_oi.getProximitySensor();
     	
     }
@@ -60,15 +59,15 @@ public class DriveTrain extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new DriveWithJoyStick(this,joystick));
+        setDefaultCommand(new DriveWithJoyStick(this,gamePad));
         
            }
    
     public void setMecanumDriveCommand(double ySpeed, double xSpeed, double zRotation, double gyroAngle){
     	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
-    	SmartDashboard.putNumber("Joystick X value", joystick.getX());
-    	SmartDashboard.putNumber("Joystick Y value", joystick.getY());
-    	SmartDashboard.putNumber("Joystick Z value", joystick.getZ());
+    	//SmartDashboard.putNumber("Joystick X value", joystick.getX());
+    	//SmartDashboard.putNumber("Joystick Y value", joystick.getY());
+    	//SmartDashboard.putNumber("Joystick Z value", joystick.getZ());
     	SmartDashboard.putBoolean("Proximity Sensor", proximitySensor.get());
     }
 }

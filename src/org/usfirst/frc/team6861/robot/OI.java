@@ -12,6 +12,7 @@ import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -19,7 +20,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	private  Joystick stick;
+	private  XboxController gamePad;
 	private JoystickButton button7;
 	private JoystickButton button9;
 	private boolean reverseMotor=false;
@@ -38,16 +39,26 @@ public class OI {
 
 
 	public OI() {
-		 stick = new Joystick(0);
-		 button7=new JoystickButton(stick,7);
-		 button9=new JoystickButton(stick,9);
-		 button7.whenPressed(new ToggleMotorDirection(reverseMotor,this));
-		 button9.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
+		 gamePad = new XboxController(0);
+		 //button7=new JoystickButton(stick,7);
+		// button9=new JoystickButton(stick,9);
+		// button7.whenPressed(new ToggleMotorDirection(reverseMotor,this));
+		 //button9.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
 		 CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	
+	public XboxController getGamePad() {
+		return gamePad;
+	}
+
+
+	public void setGamePad(XboxController gamePad) {
+		this.gamePad = gamePad;
+	}
+
+
 	public boolean isReverseMotor() {
 		return reverseMotor;
 	}
@@ -56,13 +67,13 @@ public class OI {
 		this.reverseMotor = reverseMotor;
 	}
 
-	public Joystick getStick() {
-		return stick;
-	}
+	//public Joystick getStick() {
+	//	return stick;
+	//}
 
-	public void setStick(Joystick stick) {
-		this.stick = stick;
-	}
+	//public void setStick(Joystick stick) {
+	//	this.stick = stick;
+	//}
 
 
 	public CameraServer getCamera() {
