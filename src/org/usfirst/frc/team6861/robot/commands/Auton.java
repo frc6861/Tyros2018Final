@@ -28,6 +28,6 @@ public class Auton extends CommandGroup {
         // arm.
     	
     	addSequential(new MoveToSwitchAuton(timeout, driveTrain));
-    	addSequential(new ForwardTowardsSwitch());
+    	addSequential(new ForwardTowardsSwitch(driveTrain));
     }
 }

@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ForwardTowardsSwitch extends Command {
 	private DriveTrain driveTrain;
-    public ForwardTowardsSwitch() {
-    	this.driveTrain=driveTrain;
-        requires(driveTrain);
+    public ForwardTowardsSwitch(DriveTrain driveTrain) {
+    	 this.driveTrain=driveTrain;
+    	 requires(driveTrain);
     }
 
     // Called just before this Command runs the first time
@@ -20,8 +20,8 @@ public class ForwardTowardsSwitch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while (driveTrain.getProximitySensor().get() == true) {
-			driveTrain.setMecanumDriveCommand(0.47, 0.55, 0, 0);
+    	while (driveTrain.getProximitySensor().get()) {
+			//driveTrain.setMecanumDriveCommand(0.1, 0.55, 0, 0);
 		}
     }
 
