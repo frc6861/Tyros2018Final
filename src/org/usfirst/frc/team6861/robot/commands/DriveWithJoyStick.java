@@ -17,7 +17,7 @@ public class DriveWithJoyStick extends Command {
     this.driveTrain=driveTrain;
     this.gamePad = gamePad;
     requires(driveTrain);
-    //Spark spark1 = new Spark(0);
+    // Spark spark1 = new Spark(0);
     
     }
 
