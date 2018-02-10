@@ -27,8 +27,6 @@ public class OI {
 	private CameraServer camera;
 	
 
-	
-
 	public DigitalInput getProximitySensor() {
 		return proximitySensor;
 	}

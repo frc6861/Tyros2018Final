@@ -26,7 +26,7 @@ public class DriveWithJoyStick extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	driveTrain.setMecanumDriveCommand(stick.getX(), -stick.getY(), stick.getZ(), 0);
+    	driveTrain.setMecanumDriveCommand(stick.getX(), -stick.getY(), 0.75 * stick.getZ(), 0);
     }
 
     //  Make this return true when this Command no longer needs to run execute()

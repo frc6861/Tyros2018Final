@@ -28,6 +28,7 @@ public class MoveToSwitchAuton extends TimedCommand {
     protected void execute() {
     	
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
+
     	if (gameData.charAt(0) == 'L')
     	{
     		while (driveTrain.getProximitySensor().get()) {
@@ -37,6 +38,8 @@ public class MoveToSwitchAuton extends TimedCommand {
     	else {
     		while (driveTrain.getProximitySensor().get()) {
     			driveTrain.setMecanumDriveCommand(0.47, 0.55, 0, 0);
+
+    	
     		}
     	}
     	//need to work
