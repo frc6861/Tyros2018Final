@@ -7,9 +7,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Auton extends CommandGroup {
+public class CenterAuton extends CommandGroup {
 
-    public Auton(double timeout,DriveTrain driveTrain) {
+    public CenterAuton(double timeout,DriveTrain driveTrain) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
