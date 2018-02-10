@@ -30,15 +30,15 @@ public class MoveToSwitchAuton extends TimedCommand {
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
     	if(gameData==null)
     		gameData="LLL";
-    	if (gameData.charAt(0) == 'L')
+    	if (gameData.charAt(0) == 'R')
     	{
     		while (driveTrain.proximitySensor.get() == true) {
-    			driveTrain.setMecanumDriveCommand(-0.5, 0.57, 0, 0);
+    			driveTrain.setMecanumDriveCommand(-0.23, -0.3, 0, 0);
     			}
     		 }
     	else {
     		while (driveTrain.proximitySensor.get() == true) {
-    			driveTrain.setMecanumDriveCommand(0.47, 0.55, 0, 0);
+    			driveTrain.setMecanumDriveCommand(0.2, -0.3, 0, 0);
     		}
     	}
     	//need to work

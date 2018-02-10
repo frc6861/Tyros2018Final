@@ -9,6 +9,7 @@ package org.usfirst.frc.team6861.robot;
 
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -23,6 +24,8 @@ public class OI {
 	private JoystickButton button9;
 	public static boolean reverseMotor=false;
 	private DigitalInput proximitySensor;
+	private CameraServer camera;
+	
 	
 	// private PWMSpeedController spark1;
 	
@@ -54,6 +57,7 @@ public class OI {
 		 button7.whenPressed(new ToggleMotorDirection(reverseMotor));
 		 button9.whenPressed(new ToggleMotorDirection(!reverseMotor));
 		 proximitySensor = new DigitalInput(0);
+		 CameraServer.getInstance().startAutomaticCapture();
 	}
 
 	
