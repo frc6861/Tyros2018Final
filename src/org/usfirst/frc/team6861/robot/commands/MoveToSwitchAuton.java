@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 public class MoveToSwitchAuton extends TimedCommand {
 
     private DriveTrain driveTrain;
+    private String gameData="LLL";
 
 	public MoveToSwitchAuton(double timeout,DriveTrain driveTrain) {
         super(timeout);
@@ -25,11 +26,8 @@ public class MoveToSwitchAuton extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//driveTrain.setMecanumDriveCommand(1, 1, 1, 0);
-    	String gameData;
+    	
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
-    	if(gameData==null)
-    		gameData="LLL";
     	if (gameData.charAt(0) == 'L')
     	{
     		while (driveTrain.getProximitySensor().get()) {
