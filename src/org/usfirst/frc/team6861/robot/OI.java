@@ -21,8 +21,8 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private  XboxController gamePad;
-	private JoystickButton button7;
-	private JoystickButton button9;
+	private JoystickButton buttonY;
+	private JoystickButton buttonX;
 	private boolean reverseMotor=false;
 	private DigitalInput proximitySensor;
 	private CameraServer camera;
@@ -40,10 +40,10 @@ public class OI {
 
 	public OI() {
 		 gamePad = new XboxController(0);
-		 //button7=new JoystickButton(stick,7);
-		// button9=new JoystickButton(stick,9);
-		// button7.whenPressed(new ToggleMotorDirection(reverseMotor,this));
-		 //button9.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
+		 buttonY=new JoystickButton(gamePad,4);
+		 buttonX=new JoystickButton(gamePad,3);
+		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
+		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
 		 CameraServer.getInstance().startAutomaticCapture();
 	}
