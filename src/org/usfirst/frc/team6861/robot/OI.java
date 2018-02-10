@@ -55,8 +55,7 @@ public class OI {
 		 buttonLB = new JoystickButton(gamePad,5);//conveyer belt down and expel cube
 		 buttonRB = new JoystickButton(gamePad,6);//conveyer belt up and intake cube
 		 buttonBack = new JoystickButton(gamePad,7);//Retract Climb
-		 buttonStart = new JoystickButton(gamePad,8);//extend climb
-		 buttonClickLeft = new JoystickButton(gamePad,9);
+		 buttonStart = new JoystickButton(gamePad,8);//extend climb	 buttonClickLeft = new JoystickButton(gamePad,9);
 		 buttonClickRight = new JoystickButton(gamePad,10);
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));

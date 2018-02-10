@@ -47,8 +47,8 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
-		m_chooser.addDefault("DriveStraightAuton", new CrossLineAuton(3,driveTrain));
-		m_chooser.addDefault("SwitchAuton", new MoveToSwitchAuton(2,driveTrain));
+		m_chooser.addObject("DriveStraightAuton", new CrossLineAuton(3,driveTrain));
+		m_chooser.addObject("SwitchAuton", new MoveToSwitchAuton(2,driveTrain));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 		
