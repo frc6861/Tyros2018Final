@@ -26,7 +26,7 @@ public class CrossLineAuton extends TimedCommand {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	driveTrain.setMecanumDriveCommand(-0.5, 0.57, 0, 0);
+    	driveTrain.setMecanumDriveCommand(-1, 0, 0, 0);
   
     }
 
