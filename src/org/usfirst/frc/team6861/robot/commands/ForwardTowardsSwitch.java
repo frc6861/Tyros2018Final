@@ -21,7 +21,7 @@ public class ForwardTowardsSwitch extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	while (driveTrain.getProximitySensor().get()) {
-			//driveTrain.setMecanumDriveCommand(0.1, 0.55, 0, 0);
+			driveTrain.setMecanumDriveCommand(0, -0.2, 0, 0);
 		}
     }
 

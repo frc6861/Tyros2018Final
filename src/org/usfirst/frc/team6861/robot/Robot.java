@@ -7,8 +7,8 @@
 
 package org.usfirst.frc.team6861.robot;
 
+import org.usfirst.frc.team6861.robot.commands.CenterAuton;
 import org.usfirst.frc.team6861.robot.commands.CrossLineAuton;
-import org.usfirst.frc.team6861.robot.commands.MoveToSwitchAuton;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
 
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
 		m_chooser.addObject("DriveStraightAuton", new CrossLineAuton(3,driveTrain));
-		m_chooser.addObject("SwitchAuton", new MoveToSwitchAuton(2,driveTrain));
+		m_chooser.addObject("SwitchAuton", new CenterAuton(2,driveTrain));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 		
