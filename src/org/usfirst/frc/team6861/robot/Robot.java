@@ -33,8 +33,8 @@ public class Robot extends TimedRobot {
 	private  DriveTrain driveTrain;
 	private Ramp ramp;
 	public static Conveyor conveyor;
-	private Intake intake;
-	private Shooter shooter;
+	public static Intake intake;
+	public static Shooter shooter;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();

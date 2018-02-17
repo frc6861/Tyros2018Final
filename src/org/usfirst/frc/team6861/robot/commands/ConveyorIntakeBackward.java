@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class ConveyorIntakeForward extends Command {
-    public ConveyorIntakeForward(OI m_oi) {
+public class ConveyorIntakeBackward extends Command {
+    public ConveyorIntakeBackward(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.conveyor);
@@ -24,8 +24,8 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.conveyor.driveConveyor(1);
-    	Robot.intake.driveIntake(1);
+    	Robot.conveyor.driveConveyor(-1);
+    	Robot.intake.driveIntake(-1);
     }
 
     // Make this return true when this Command no longer needs to run execute()

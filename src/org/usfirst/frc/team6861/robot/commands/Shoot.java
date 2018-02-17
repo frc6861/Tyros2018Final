@@ -2,20 +2,18 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.Robot;
-import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ConveyorIntakeForward extends Command {
-    public ConveyorIntakeForward(OI m_oi) {
+public class Shoot extends Command {
+
+    public Shoot(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.conveyor);
-    	requires(Robot.intake);
+    	requires(Robot.shooter);
     }
 
     // Called just before this Command runs the first time
@@ -24,8 +22,7 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.conveyor.driveConveyor(1);
-    	Robot.intake.driveIntake(1);
+    	Robot.shooter.driveShooter(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -35,14 +32,12 @@ public class ConveyorIntakeForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyor.driveConveyor(0);
-    	Robot.intake.driveIntake(0);
+    	Robot.shooter.driveShooter(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.conveyor.driveConveyor(0);
-    	Robot.intake.driveIntake(0);
+    	Robot.shooter.driveShooter(0);
     }
 }

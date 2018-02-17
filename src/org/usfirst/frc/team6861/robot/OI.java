@@ -7,7 +7,9 @@
 	
 package org.usfirst.frc.team6861.robot;
 
+import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeBackward;
 import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeForward;
+import org.usfirst.frc.team6861.robot.commands.Shoot;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
@@ -69,6 +71,8 @@ public class OI {
 	
 	public void Init() {
 		 buttonRB.whileHeld(new ConveyorIntakeForward(this));
+		 buttonLB.whileHeld(new ConveyorIntakeBackward(this));
+		 buttonA.whileHeld(new Shoot(this));
 	}
 
 	

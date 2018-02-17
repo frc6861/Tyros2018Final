@@ -27,5 +27,9 @@ public class Intake extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    public void driveIntake(double speed) {
+    	intakeLeft.set(speed);
+    	intakeRight.set(-speed);
+    }
 }
 
