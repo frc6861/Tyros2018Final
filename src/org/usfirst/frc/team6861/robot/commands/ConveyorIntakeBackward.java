@@ -1,17 +1,14 @@
 package org.usfirst.frc.team6861.robot.commands;
 
-import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.Robot;
-import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
-import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class ConveyorIntakeBackward extends Command {
-    public ConveyorIntakeBackward(OI m_oi) {
+    public ConveyorIntakeBackward() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.conveyor);

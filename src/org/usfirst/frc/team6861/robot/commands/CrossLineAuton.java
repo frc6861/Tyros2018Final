@@ -2,7 +2,6 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
-import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**

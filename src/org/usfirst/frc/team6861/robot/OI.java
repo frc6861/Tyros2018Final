@@ -11,11 +11,9 @@ import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeBackward;
 import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeForward;
 import org.usfirst.frc.team6861.robot.commands.Shoot;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
-import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -70,8 +68,8 @@ public class OI {
 	}
 	
 	public void Init() {
-		 buttonRB.whileHeld(new ConveyorIntakeForward(this));
-		 buttonLB.whileHeld(new ConveyorIntakeBackward(this));
+		 buttonRB.whileHeld(new ConveyorIntakeForward());
+		 buttonLB.whileHeld(new ConveyorIntakeBackward());
 		 buttonA.whileHeld(new Shoot(this));
 		 buttonB.whileHeld(new Shoot(this));
 	}

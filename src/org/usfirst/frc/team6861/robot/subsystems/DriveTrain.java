@@ -4,12 +4,10 @@ package org.usfirst.frc.team6861.robot.subsystems;
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.commands.DriveWithJoyStick;
 
-
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
