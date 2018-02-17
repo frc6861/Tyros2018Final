@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Ramp extends Subsystem {
-	  Spark spark;
-	  OI oi;
+	private Spark spark;
+	private OI oi;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	

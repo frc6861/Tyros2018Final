@@ -9,12 +9,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  *
  */
 public class Shooter extends Subsystem {
-	Spark shooterLeft;
-	Spark shooterRight;
-	OI oi;
+	private Spark shooterLeft;
+	private Spark shooterRight;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public Shooter(OI m_oi) {
+	public Shooter() {
 		shooterLeft = new Spark(1);
 		shooterRight = new Spark(3);
 	

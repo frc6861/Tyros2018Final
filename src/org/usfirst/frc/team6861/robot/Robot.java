@@ -51,7 +51,7 @@ public class Robot extends TimedRobot {
 		ramp=new Ramp(m_oi);
 		conveyor = new Conveyor();
 		intake = new Intake(m_oi);
-		shooter = new Shooter(m_oi);
+		shooter = new Shooter();
 		m_oi.Init();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
