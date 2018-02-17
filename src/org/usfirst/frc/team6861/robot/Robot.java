@@ -49,7 +49,7 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		driveTrain=new DriveTrain(m_oi);
 		ramp=new Ramp(m_oi);
-		conveyor = new Conveyor(m_oi);
+		conveyor = new Conveyor();
 		intake = new Intake(m_oi);
 		shooter = new Shooter(m_oi);
 		m_oi.Init();
