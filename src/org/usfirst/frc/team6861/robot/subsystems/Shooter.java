@@ -29,7 +29,7 @@ public class Shooter extends Subsystem {
     }
     public void driveShooter(double speed) {
     	shooterLeft.set(-speed);
-    	shooterRight.set(-speed);
+    	shooterRight.set(speed);
     	
     } 
 }

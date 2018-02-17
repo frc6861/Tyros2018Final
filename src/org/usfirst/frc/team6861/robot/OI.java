@@ -73,6 +73,7 @@ public class OI {
 		 buttonRB.whileHeld(new ConveyorIntakeForward(this));
 		 buttonLB.whileHeld(new ConveyorIntakeBackward(this));
 		 buttonA.whileHeld(new Shoot(this));
+		 buttonB.whileHeld(new Shoot(this));
 	}
 
 	
