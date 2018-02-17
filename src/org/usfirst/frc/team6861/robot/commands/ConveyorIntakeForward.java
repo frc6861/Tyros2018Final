@@ -3,6 +3,7 @@ package org.usfirst.frc.team6861.robot.commands;
 import org.usfirst.frc.team6861.robot.Robot;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -10,10 +11,15 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class ConveyorIntakeForward extends Command {
 	private Conveyor conveyor;
+	private DigitalInput conveyorSensor;
+	
+	
     public ConveyorIntakeForward(Conveyor conveyor) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.conveyor=conveyor;
+    	
+    	
     	requires(conveyor);
     	requires(Robot.intake);
     }
@@ -24,8 +30,11 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	//while (!conveyor.getConveyorSensor().get()) {
     	conveyor.driveConveyor(1);
     	Robot.intake.driveIntake(1);
+    	//}
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

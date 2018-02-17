@@ -1,7 +1,5 @@
 package org.usfirst.frc.team6861.robot.subsystems;
 
-import org.usfirst.frc.team6861.robot.OI;
-
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
 

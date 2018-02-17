@@ -31,11 +31,11 @@ public class MoveToSwitchAuton extends TimedCommand {
 
     	if (gameData.charAt(0) == 'R')
     	{
-    			driveTrain.setMecanumDriveCommand(-0.4, -0.3, 0, 0);
+    			driveTrain.setMecanumDriveCommand(-0.4, -0.3, 0, 0);//right side
     			
     		 }
     	else {
-    			driveTrain.setMecanumDriveCommand(0.4, -0.3, 0, 0);
+    			driveTrain.setMecanumDriveCommand(0.55, -0.5, 0, 0);//left side
 
     	}
     	//need to work

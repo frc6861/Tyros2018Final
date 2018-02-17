@@ -34,7 +34,7 @@ public class Robot extends TimedRobot {
 	private Ramp ramp;
 	public static Intake intake;
 	public static Shooter shooter;
-	private Conveyor conveyor;
+	public static Conveyor conveyor;
 	
 
 	Command m_autonomousCommand;
@@ -58,7 +58,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
 		m_chooser.addObject("DriveStraightAuton", new CrossLineAuton(3,driveTrain));
-		m_chooser.addObject("SwitchAuton", new CenterAuton(2,driveTrain));
+		m_chooser.addObject("SwitchAuton", new CenterAuton(2,driveTrain, m_oi));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		
 		
@@ -112,6 +112,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
+		Scheduler.getInstance().removeAll();
 		m_autonomousCommand = m_chooser.getSelected();
 
 		/*
@@ -125,6 +126,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
+		
 	}
 
 	/**
@@ -148,7 +150,6 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		//SmartDashboard.putNumber("ai0", m_oi.getAi0().getVoltage() * 5 / 0.00488);
 	}
 
 	/**

@@ -22,7 +22,7 @@ public class Dispense extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.driveShooter(0.25);
+    	Robot.shooter.driveShooter(0.45);
     } 
 
     // Make this return true when this Command no longer needs to run execute()

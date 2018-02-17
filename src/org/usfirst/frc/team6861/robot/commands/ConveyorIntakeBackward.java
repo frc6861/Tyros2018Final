@@ -24,8 +24,10 @@ public class ConveyorIntakeBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	conveyor.driveConveyor(-1);
-    	Robot.intake.driveIntake(-1);
+
+    	
+    	conveyor.driveConveyor(-0.4);
+    	Robot.intake.driveIntake(-0.4);
     }
 
     // Make this return true when this Command no longer needs to run execute()

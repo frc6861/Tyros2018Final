@@ -3,14 +3,16 @@ package org.usfirst.frc.team6861.robot.commands;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
  *
  */
-public class ForwardTowardsSwitch extends Command {
+public class ForwardTowardsSwitch extends TimedCommand {
 	private DriveTrain driveTrain;
-    public ForwardTowardsSwitch(DriveTrain driveTrain) {
-    	 this.driveTrain=driveTrain;
+    public ForwardTowardsSwitch(double timeout, DriveTrain driveTrain) {
+    	 super (timeout);
+    	this.driveTrain=driveTrain;
     	 requires(driveTrain);
     }
 
@@ -20,15 +22,16 @@ public class ForwardTowardsSwitch extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	while (driveTrain.getProximitySensor().get()) {
-			driveTrain.setMecanumDriveCommand(0, -0.2, 0, 0);
-		}
+			driveTrain.setMecanumDriveCommand(0, -0.3, 0, 0);
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    protected boolean isFinished() {
-        return false;
-    }
+    //protected boolean isFinished() {
+    	//return (driveTrain.getProximitySensor().get());
+    	//return false;
+    	//}
+    
 
     // Called once after isFinished returns true
     protected void end() {

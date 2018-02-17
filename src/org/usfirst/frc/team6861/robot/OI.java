@@ -9,6 +9,7 @@ package org.usfirst.frc.team6861.robot;
 
 import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeBackward;
 import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeForward;
+import org.usfirst.frc.team6861.robot.commands.Dispense;
 import org.usfirst.frc.team6861.robot.commands.Shoot;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
@@ -29,6 +30,7 @@ public class OI {
 	private DigitalInput proximitySensor;
 	private CameraServer camera;
 	private Conveyor conveyor;
+	private DigitalInput conveyorSensor;
 	
 
 	public DigitalInput getProximitySensor() {
@@ -56,6 +58,7 @@ public class OI {
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
+		 conveyorSensor = new DigitalInput(2);
 		 CameraServer.getInstance().startAutomaticCapture();
 		 conveyor=new Conveyor();
 		 
@@ -65,10 +68,20 @@ public class OI {
 		 buttonRB.whileHeld(new ConveyorIntakeForward(conveyor));
 		 buttonLB.whileHeld(new ConveyorIntakeBackward(conveyor));
 		 buttonA.whileHeld(new Shoot(this));
-		 buttonB.whileHeld(new Shoot(this));
+		 buttonB.whileHeld(new Dispense(this));
 	}
 
 	
+	public DigitalInput getConveyorSensor() {
+		return conveyorSensor;
+	}
+
+
+	public void setConveyorSensor(DigitalInput conveyorSensor) {
+		this.conveyorSensor = conveyorSensor;
+	}
+
+
 	public XboxController getGamePad() {
 		return gamePad;
 	}
@@ -95,6 +108,14 @@ public class OI {
 
 	public void setCamera(CameraServer camera) {
 		this.camera = camera;
+	}
+	public Conveyor getConveyor() {
+		return conveyor;
+	}
+
+
+	public void setConveyor(Conveyor conveyor) {
+		this.conveyor = conveyor;
 	}
 
 	

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team6861.robot.commands;
 
+import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
@@ -9,7 +10,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class CenterAuton extends CommandGroup {
 
-    public CenterAuton(double timeout,DriveTrain driveTrain) {
+    public CenterAuton(double timeout,DriveTrain driveTrain, OI m_oi ) {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -28,6 +29,8 @@ public class CenterAuton extends CommandGroup {
         // arm.
     	
     	addSequential(new MoveToSwitchAuton(timeout, driveTrain));
-    	addSequential(new ForwardTowardsSwitch(driveTrain));
+    	addSequential(new ForwardTowardsSwitch(1, driveTrain));
+    	addParallel(new Dispense(m_oi));
+    	addSequential(new ConveyorIntakeForward(m_oi.getConveyor()));
     }
 }
