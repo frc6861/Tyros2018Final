@@ -14,7 +14,7 @@ public class Intake extends Subsystem {
 	OI oi;
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-	public Intake(OI m_oi) {
+	public Intake() {
 		intakeLeft = new Spark(2);
 		intakeRight = new Spark(5);
 	

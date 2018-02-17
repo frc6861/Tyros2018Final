@@ -11,6 +11,7 @@ import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeBackward;
 import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeForward;
 import org.usfirst.frc.team6861.robot.commands.Shoot;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
+import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -23,19 +24,11 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	private  XboxController gamePad;
-	private JoystickButton buttonY;
-	private JoystickButton buttonX;
-	private JoystickButton buttonA;
-	private JoystickButton buttonB;
-	private JoystickButton buttonLB;
-	private JoystickButton buttonRB;
-	private JoystickButton buttonBack;
-	private JoystickButton buttonStart;
-	private JoystickButton buttonClickLeft;
-	private JoystickButton buttonClickRight;
+	private JoystickButton buttonY,buttonX,buttonA,buttonB,buttonLB,buttonBack,buttonRB,buttonStart,buttonClickLeft,buttonClickRight;
 	private boolean reverseMotor=false;
 	private DigitalInput proximitySensor;
 	private CameraServer camera;
+	private Conveyor conveyor;
 	
 
 	public DigitalInput getProximitySensor() {
@@ -64,12 +57,13 @@ public class OI {
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
 		 CameraServer.getInstance().startAutomaticCapture();
+		 conveyor=new Conveyor();
 		 
 	}
 	
 	public void Init() {
-		 buttonRB.whileHeld(new ConveyorIntakeForward());
-		 buttonLB.whileHeld(new ConveyorIntakeBackward());
+		 buttonRB.whileHeld(new ConveyorIntakeForward(conveyor));
+		 buttonLB.whileHeld(new ConveyorIntakeBackward(conveyor));
 		 buttonA.whileHeld(new Shoot(this));
 		 buttonB.whileHeld(new Shoot(this));
 	}
@@ -92,14 +86,6 @@ public class OI {
 	public void setReverseMotor(boolean reverseMotor) {
 		this.reverseMotor = reverseMotor;
 	}
-
-	//public Joystick getStick() {
-	//	return stick;
-	//}
-
-	//public void setStick(Joystick stick) {
-	//	this.stick = stick;
-	//}
 
 
 	public CameraServer getCamera() {

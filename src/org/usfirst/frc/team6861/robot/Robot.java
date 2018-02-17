@@ -29,12 +29,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static OI m_oi;
+	private OI m_oi;
 	private  DriveTrain driveTrain;
 	private Ramp ramp;
-	public static Conveyor conveyor;
 	public static Intake intake;
 	public static Shooter shooter;
+	private Conveyor conveyor;
+	
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -49,8 +50,7 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		driveTrain=new DriveTrain(m_oi);
 		ramp=new Ramp(m_oi);
-		conveyor = new Conveyor();
-		intake = new Intake(m_oi);
+		intake = new Intake();
 		shooter = new Shooter();
 		m_oi.Init();
 		
@@ -77,14 +77,7 @@ public class Robot extends TimedRobot {
 	
 
 
-	public Conveyor getConveyor() {
-		return conveyor;
-	}
-
-	public void setConveyor(Conveyor conveyor) {
-		this.conveyor = conveyor;
-	}
-
+	
 	public Intake getIntake() {
 		return intake;
 	}

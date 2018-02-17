@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Shoot extends Command {
-
     public Shoot(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

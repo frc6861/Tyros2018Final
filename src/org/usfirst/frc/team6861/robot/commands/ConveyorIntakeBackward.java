@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.Robot;
+import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,10 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ConveyorIntakeBackward extends Command {
-    public ConveyorIntakeBackward() {
+	private Conveyor conveyor;
+    public ConveyorIntakeBackward(Conveyor conveyor) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.conveyor);
+    	this.conveyor=conveyor;
+    	requires(conveyor);
     	requires(Robot.intake);
     }
 
@@ -21,7 +24,7 @@ public class ConveyorIntakeBackward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.conveyor.driveConveyor(-1);
+    	conveyor.driveConveyor(-1);
     	Robot.intake.driveIntake(-1);
     }
 
@@ -32,14 +35,14 @@ public class ConveyorIntakeBackward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.conveyor.driveConveyor(0);
+    	conveyor.driveConveyor(0);
     	Robot.intake.driveIntake(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.conveyor.driveConveyor(0);
+    	conveyor.driveConveyor(0);
     	Robot.intake.driveIntake(0);
     }
 }
