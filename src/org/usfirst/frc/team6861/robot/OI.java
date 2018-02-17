@@ -7,7 +7,9 @@
 	
 package org.usfirst.frc.team6861.robot;
 
+import org.usfirst.frc.team6861.robot.commands.ConveyorIntakeForward;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
+import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -57,11 +59,16 @@ public class OI {
 		 buttonBack = new JoystickButton(gamePad,7);//Retract Climb
 		 buttonStart = new JoystickButton(gamePad,8);//extend climb	 buttonClickLeft = new JoystickButton(gamePad,9);
 		 buttonClickRight = new JoystickButton(gamePad,10);
+		 
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 proximitySensor = new DigitalInput(0);
 		 CameraServer.getInstance().startAutomaticCapture();
 		 
+	}
+	
+	public void Init() {
+		 buttonRB.whileHeld(new ConveyorIntakeForward(this));
 	}
 
 	

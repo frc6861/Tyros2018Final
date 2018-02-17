@@ -9,8 +9,11 @@ package org.usfirst.frc.team6861.robot;
 
 import org.usfirst.frc.team6861.robot.commands.CenterAuton;
 import org.usfirst.frc.team6861.robot.commands.CrossLineAuton;
+import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team6861.robot.subsystems.Intake;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
+import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -26,9 +29,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * project.
  */
 public class Robot extends TimedRobot {
-	private  OI m_oi;
+	public static OI m_oi;
 	private  DriveTrain driveTrain;
 	private Ramp ramp;
+	public static Conveyor conveyor;
+	private Intake intake;
+	private Shooter shooter;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -43,6 +49,10 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		driveTrain=new DriveTrain(m_oi);
 		ramp=new Ramp(m_oi);
+		conveyor = new Conveyor(m_oi);
+		intake = new Intake(m_oi);
+		shooter = new Shooter(m_oi);
+		m_oi.Init();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
@@ -66,6 +76,30 @@ public class Robot extends TimedRobot {
 	}
 	
 
+
+	public Conveyor getConveyor() {
+		return conveyor;
+	}
+
+	public void setConveyor(Conveyor conveyor) {
+		this.conveyor = conveyor;
+	}
+
+	public Intake getIntake() {
+		return intake;
+	}
+
+	public void setIntake(Intake intake) {
+		this.intake = intake;
+	}
+
+	public Shooter getShooter() {
+		return shooter;
+	}
+
+	public void setShooter(Shooter shooter) {
+		this.shooter = shooter;
+	}
 
 	@Override
 	public void disabledPeriodic() {
