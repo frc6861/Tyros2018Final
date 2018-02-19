@@ -1,7 +1,8 @@
 package org.usfirst.frc.team6861.robot.commands;
 
-import org.usfirst.frc.team6861.robot.Robot;
+import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
+import org.usfirst.frc.team6861.robot.subsystems.Intake;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
@@ -12,16 +13,17 @@ import edu.wpi.first.wpilibj.command.Command;
 public class ConveyorIntakeForward extends Command {
 	private Conveyor conveyor;
 	private DigitalInput conveyorSensor;
+	private Intake intake;
 	
 	
-    public ConveyorIntakeForward(Conveyor conveyor) {
+    public ConveyorIntakeForward(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this.conveyor=conveyor;
-    	
+    	this.conveyor=m_oi.getConveyor();
+    	this.intake=m_oi.getIntake();
     	
     	requires(conveyor);
-    	requires(Robot.intake);
+    	requires(intake);
     }
 
     // Called just before this Command runs the first time
@@ -32,8 +34,7 @@ public class ConveyorIntakeForward extends Command {
     protected void execute() {
     	//while (!conveyor.getConveyorSensor().get()) {
     	conveyor.driveConveyor(1);
-    	Robot.intake.driveIntake(1);
-    	//}
+    	intake.driveIntake(1);
     	
     }
 
@@ -45,13 +46,13 @@ public class ConveyorIntakeForward extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	conveyor.driveConveyor(0);
-    	Robot.intake.driveIntake(0);
+    	intake.driveIntake(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	conveyor.driveConveyor(0);
-    	Robot.intake.driveIntake(0);
+    	intake.driveIntake(0);
     }
 }

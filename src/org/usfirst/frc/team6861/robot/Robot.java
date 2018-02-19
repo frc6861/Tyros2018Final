@@ -32,9 +32,6 @@ public class Robot extends TimedRobot {
 	private OI m_oi;
 	private  DriveTrain driveTrain;
 	private Ramp ramp;
-	public static Intake intake;
-	public static Shooter shooter;
-	public static Conveyor conveyor;
 	
 
 	Command m_autonomousCommand;
@@ -50,8 +47,6 @@ public class Robot extends TimedRobot {
 		m_oi = new OI();
 		driveTrain=new DriveTrain(m_oi);
 		ramp=new Ramp(m_oi);
-		intake = new Intake();
-		shooter = new Shooter();
 		m_oi.Init();
 		
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -75,24 +70,6 @@ public class Robot extends TimedRobot {
 
 	}
 	
-
-
-	
-	public Intake getIntake() {
-		return intake;
-	}
-
-	public void setIntake(Intake intake) {
-		this.intake = intake;
-	}
-
-	public Shooter getShooter() {
-		return shooter;
-	}
-
-	public void setShooter(Shooter shooter) {
-		this.shooter = shooter;
-	}
 
 	@Override
 	public void disabledPeriodic() {

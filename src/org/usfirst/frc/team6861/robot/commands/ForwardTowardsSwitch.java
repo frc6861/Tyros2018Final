@@ -2,7 +2,6 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
@@ -27,10 +26,10 @@ public class ForwardTowardsSwitch extends TimedCommand {
     }
 
     // Make this return true when this Command no longer needs to run execute()
-    //protected boolean isFinished() {
-    	//return (driveTrain.getProximitySensor().get());
-    	//return false;
-    	//}
+    protected boolean isFinished() {
+    	return (driveTrain.getM_oi().getLeftProximitySensor().get() 
+    			&& driveTrain.getM_oi().getRightProximitySensor().get());
+    }
     
 
     // Called once after isFinished returns true

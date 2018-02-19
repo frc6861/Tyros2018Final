@@ -13,6 +13,8 @@ import org.usfirst.frc.team6861.robot.commands.Dispense;
 import org.usfirst.frc.team6861.robot.commands.Shoot;
 import org.usfirst.frc.team6861.robot.commands.ToggleMotorDirection;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
+import org.usfirst.frc.team6861.robot.subsystems.Intake;
+import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -27,21 +29,13 @@ public class OI {
 	private  XboxController gamePad;
 	private JoystickButton buttonY,buttonX,buttonA,buttonB,buttonLB,buttonBack,buttonRB,buttonStart,buttonClickLeft,buttonClickRight;
 	private boolean reverseMotor=false;
-	private DigitalInput proximitySensor;
+	private DigitalInput leftProximitySensor,rightProximitySensor;
 	private CameraServer camera;
 	private Conveyor conveyor;
+	private Intake intake;
+	private Shooter shooter;
 	private DigitalInput conveyorSensor;
 	
-
-	public DigitalInput getProximitySensor() {
-		return proximitySensor;
-	}
-
-
-	public void setProximitySensor(DigitalInput proximitySensor) {
-		this.proximitySensor = proximitySensor;
-	}
-
 
 	public OI() {
 		 gamePad = new XboxController(0);
@@ -57,16 +51,19 @@ public class OI {
 		 
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
-		 proximitySensor = new DigitalInput(0);
+		 leftProximitySensor = new DigitalInput(0);
+		 setRightProximitySensor(new DigitalInput(4));
 		 conveyorSensor = new DigitalInput(2);
 		 CameraServer.getInstance().startAutomaticCapture();
 		 conveyor=new Conveyor();
+		 intake=new Intake();
+		 shooter=new Shooter();
 		 
 	}
 	
 	public void Init() {
-		 buttonRB.whileHeld(new ConveyorIntakeForward(conveyor));
-		 buttonLB.whileHeld(new ConveyorIntakeBackward(conveyor));
+		 buttonRB.whileHeld(new ConveyorIntakeForward(this));
+		 buttonLB.whileHeld(new ConveyorIntakeBackward(this));
 		 buttonA.whileHeld(new Shoot(this));
 		 buttonB.whileHeld(new Dispense(this));
 	}
@@ -118,5 +115,43 @@ public class OI {
 		this.conveyor = conveyor;
 	}
 
+
+	public Intake getIntake() {
+		return intake;
+	}
+
+
+	public void setIntake(Intake intake) {
+		this.intake = intake;
+	}
+
+
+	public Shooter getShooter() {
+		return shooter;
+	}
+
+
+	public void setShooter(Shooter shooter) {
+		this.shooter = shooter;
+	}
+
+
+	public DigitalInput getRightProximitySensor() {
+		return rightProximitySensor;
+	}
+
+
+	public void setRightProximitySensor(DigitalInput rightProximitySensor) {
+		this.rightProximitySensor = rightProximitySensor;
+	}
+	public DigitalInput getLeftProximitySensor() {
+		return leftProximitySensor;
+	}
+
+
+	public void setLeftProximitySensor(DigitalInput proximitySensor) {
+		this.leftProximitySensor = proximitySensor;
+	}
+	
 	
 }

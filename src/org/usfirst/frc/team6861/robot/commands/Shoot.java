@@ -1,7 +1,7 @@
 package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.OI;
-import org.usfirst.frc.team6861.robot.Robot;
+import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,10 +9,12 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Shoot extends Command {
+	private Shooter shooter;
     public Shoot(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.shooter);
+    	this.shooter=m_oi.getShooter();
+    	requires(shooter);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +23,7 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.driveShooter(1);
+    	shooter.driveShooter(1);
     	//Robot.conveyor.driveConveyor(1);
     }
 
@@ -32,14 +34,14 @@ public class Shoot extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooter.driveShooter(0);
+    	shooter.driveShooter(0);
     	//Robot.conveyor.driveConveyor(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.shooter.driveShooter(0);
+    	shooter.driveShooter(0);
     	//Robot.conveyor.driveConveyor(0);
     }
 }
