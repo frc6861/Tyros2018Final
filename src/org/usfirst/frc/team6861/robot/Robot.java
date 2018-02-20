@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
-		m_chooser.addObject("DriveStraightAuton", new CrossLineAuton(3,driveTrain));
+		m_chooser.addObject("DriveStraightAuton", new CrossLineAuton(5.2,driveTrain));
 		m_chooser.addObject("SwitchAuton", new CenterAuton(2,driveTrain, m_oi));
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		SmartDashboard.putBoolean("Proximity Sensor Left", m_oi.getLeftProximitySensor().get());
