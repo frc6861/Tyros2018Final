@@ -1,6 +1,7 @@
 package org.usfirst.frc.team6861.robot.subsystems;
 
 import org.usfirst.frc.team6861.robot.OI;
+import org.usfirst.frc.team6861.robot.commands.ChangeRampDirection;
 
 import edu.wpi.first.wpilibj.Spark;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,7 +22,7 @@ public class Ramp extends Subsystem {
 	}
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-    	//setDefaultCommand(new ChangeRampDirection(this));
+    	setDefaultCommand(new ChangeRampDirection(this));
     }
    public void  driveSpark() {
 	   if(oi.isReverseMotor())

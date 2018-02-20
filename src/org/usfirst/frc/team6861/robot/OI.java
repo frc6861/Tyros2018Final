@@ -28,7 +28,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 	private  XboxController gamePad;
 	private JoystickButton buttonY,buttonX,buttonA,buttonB,buttonLB,buttonBack,buttonRB,buttonStart,buttonClickLeft,buttonClickRight;
-	private boolean reverseMotor=false;
+	private boolean reverseMotor=true;
 	private DigitalInput leftProximitySensor,rightProximitySensor;
 	private CameraServer camera;
 	private Conveyor conveyor;

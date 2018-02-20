@@ -65,7 +65,6 @@ public class DriveTrain extends Subsystem {
    
     public void setMecanumDriveCommand(double ySpeed, double xSpeed, double zRotation, double gyroAngle){
     	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
-    	SmartDashboard.putBoolean("Proximity Sensor", m_oi.getLeftProximitySensor().get());
-    	SmartDashboard.putBoolean("Proximity Sensor", m_oi.getRightProximitySensor().get());
+    	
     }
 }
