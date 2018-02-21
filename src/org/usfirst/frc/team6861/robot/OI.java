@@ -48,13 +48,13 @@ public class OI {
 		 buttonBack = new JoystickButton(gamePad,7);//Retract Climb
 		 buttonStart = new JoystickButton(gamePad,8);//extend climb	 buttonClickLeft = new JoystickButton(gamePad,9);
 		 buttonClickRight = new JoystickButton(gamePad,10);
+		 buttonBack.whenPressed(new ToggleMotorDirection(true,this));
 		 
 		 buttonY.whenPressed(new ToggleMotorDirection(reverseMotor,this));
 		 buttonX.whenPressed(new ToggleMotorDirection(!reverseMotor,this));
 		 leftProximitySensor = new DigitalInput(0);
 		 setRightProximitySensor(new DigitalInput(4));
 		 conveyorSensor = new DigitalInput(2);
-		 CameraServer.getInstance().startAutomaticCapture();
 		 conveyor=new Conveyor();
 		 intake=new Intake();
 		 shooter=new Shooter();

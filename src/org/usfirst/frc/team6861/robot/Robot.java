@@ -15,6 +15,7 @@ import org.usfirst.frc.team6861.robot.subsystems.Intake;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
 import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -48,7 +49,7 @@ public class Robot extends TimedRobot {
 		driveTrain=new DriveTrain(m_oi);
 		ramp=new Ramp(m_oi);
 		m_oi.Init();
-		
+		CameraServer.getInstance().startAutomaticCapture();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		m_chooser = new SendableChooser();
@@ -57,6 +58,7 @@ public class Robot extends TimedRobot {
 		SmartDashboard.putData("Autonomous mode chooser", m_chooser);
 		SmartDashboard.putBoolean("Proximity Sensor Left", m_oi.getLeftProximitySensor().get());
     	SmartDashboard.putBoolean("Proximity Sensor Right", m_oi.getRightProximitySensor().get());
+    	SmartDashboard.putBoolean("Proximity Sensor Top", m_oi.getConveyorSensor().get());
 		
 		
 		

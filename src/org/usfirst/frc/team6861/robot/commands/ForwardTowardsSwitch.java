@@ -27,8 +27,12 @@ public class ForwardTowardsSwitch extends TimedCommand {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return (driveTrain.getM_oi().getLeftProximitySensor().get() 
+    	return isTimedOut();
+    	/*boolean flag=(driveTrain.getM_oi().getLeftProximitySensor().get() 
     			&& driveTrain.getM_oi().getRightProximitySensor().get());
+    	if(flag)
+    			System.out.println("*******************************************"+flag);
+    	return flag;*/
     }
     
 
