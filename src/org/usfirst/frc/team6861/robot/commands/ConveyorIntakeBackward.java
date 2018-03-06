@@ -30,7 +30,7 @@ public class ConveyorIntakeBackward extends Command {
 
     	
     	conveyor.driveConveyor(-0.4);
-    	intake.driveIntake(-0.2);
+    	intake.driveIntake(-0.75);
     }
 
     // Make this return true when this Command no longer needs to run execute()

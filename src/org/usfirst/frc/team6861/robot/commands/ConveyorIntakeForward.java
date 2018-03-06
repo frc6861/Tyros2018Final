@@ -34,7 +34,7 @@ public class ConveyorIntakeForward extends Command {
     protected void execute() {
     	//while (!conveyor.getConveyorSensor().get()) {
     	conveyor.driveConveyor(1);
-    	intake.driveIntake(0.2);
+    	intake.driveIntake(0.75);
     	
     }
 
