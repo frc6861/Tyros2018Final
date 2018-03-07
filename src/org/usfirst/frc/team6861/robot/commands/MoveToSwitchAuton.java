@@ -35,7 +35,8 @@ public class MoveToSwitchAuton extends TimedCommand {
     			
     		 }
     	else {
-    			driveTrain.setMecanumDriveCommand(0.55, -0.5, 0, 0);//left side
+    			//driveTrain.setMecanumDriveCommand(0.55, -0.5, 0, 0);//left side
+    		driveTrain.setMecanumDriveCommand(0.4, -0.3, 0, 0);
 
     	}
     	//need to work
