@@ -29,7 +29,7 @@ public class ConveyorIntakeBackward extends Command {
     protected void execute() {
 
     	
-    	conveyor.driveConveyor(-0.4);
+    	conveyor.driveConveyor(-0.75);
     	intake.driveIntake(-0.75);
     }
 

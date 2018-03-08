@@ -2,29 +2,29 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
-import org.usfirst.frc.team6861.robot.subsystems.Intake;
+import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
 
-import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class ConveyorIntakeForward extends Command {
+public class ConveyorAxis extends Command {
+	private DriveTrain driveTrain;
+	private OI m_oi;
+	private XboxController gamePad;
 	private Conveyor conveyor;
-	private DigitalInput conveyorSensor;
-	private Intake intake;
-	private DigitalInput sensor;
-	
-	
-    public ConveyorIntakeForward(OI m_oi) {
+    public ConveyorAxis() {
+    	this.driveTrain=driveTrain;
+    	this.m_oi = m_oi;
+        this.gamePad = m_oi.getGamePad();
+        this.conveyor=conveyor;
+        requires(driveTrain);
+        requires(conveyor);
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this.conveyor=m_oi.getConveyor();
-    	this.intake=m_oi.getIntake();
-    	this.sensor = m_oi.getConveyorSensor();
-    	requires(conveyor);
-    	requires(intake);
     }
 
     // Called just before this Command runs the first time
@@ -33,11 +33,7 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//while (!conveyor.getConveyorSensor().get()) {
-    	//if(sensor.get() && ) {
-    	conveyor.driveConveyor(0.5);
-    	intake.driveIntake(0.75);
-    	//}
+    	conveyor.driveConveyor(gamePad.getRawAxis(4));
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -47,14 +43,10 @@ public class ConveyorIntakeForward extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	conveyor.driveConveyor(0);
-    	intake.driveIntake(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	conveyor.driveConveyor(0);
-    	intake.driveIntake(0);
     }
 }

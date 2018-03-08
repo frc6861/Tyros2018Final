@@ -59,6 +59,7 @@ public class OI {
 		 conveyor=new Conveyor();
 		 intake=new Intake();
 		 shooter=new Shooter();
+		 CameraServer.getInstance().startAutomaticCapture();
 		 
 	}
 	

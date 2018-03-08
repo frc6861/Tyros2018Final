@@ -29,6 +29,7 @@ public class Dispense extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	conveyor.driveConveyor(1);
     	shooter.driveShooter(0.35);
     	

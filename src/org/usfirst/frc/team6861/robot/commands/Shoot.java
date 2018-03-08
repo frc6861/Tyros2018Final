@@ -32,8 +32,15 @@ public class Shoot extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	conveyor.driveConveyor(1);
     	shooter.driveShooter(1);
+    	try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	conveyor.driveConveyor(1);
+    	
     	
     }
 
