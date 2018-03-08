@@ -14,7 +14,6 @@ public class ConveyorIntakeForward extends Command {
 	private Conveyor conveyor;
 	private DigitalInput conveyorSensor;
 	private Intake intake;
-	private DigitalInput sensor;
 	
 	
     public ConveyorIntakeForward(OI m_oi) {
@@ -22,7 +21,7 @@ public class ConveyorIntakeForward extends Command {
         // eg. requires(chassis);
     	this.conveyor=m_oi.getConveyor();
     	this.intake=m_oi.getIntake();
-    	this.sensor = m_oi.getConveyorSensor();
+    	this.conveyorSensor = m_oi.getConveyorSensor();
     	requires(conveyor);
     	requires(intake);
     }
@@ -33,11 +32,8 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//while (!conveyor.getConveyorSensor().get()) {
-    	//if(sensor.get() && ) {
     	conveyor.driveConveyor(0.5);
     	intake.driveIntake(0.75);
-    	//}
     }
 
     // Make this return true when this Command no longer needs to run execute()

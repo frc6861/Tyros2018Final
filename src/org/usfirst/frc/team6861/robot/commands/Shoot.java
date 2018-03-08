@@ -2,7 +2,6 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
-import org.usfirst.frc.team6861.robot.subsystems.Intake;
 import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,15 +12,11 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Shoot extends Command {
 	private Shooter shooter;
 	private Conveyor conveyor;
-	//private Intake intake;
-	private OI m_oi;
     public Shoot(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.shooter=m_oi.getShooter();
     	this.conveyor=m_oi.getConveyor();
-    	//this.intake=m_oi.getIntake();
-    	this.m_oi = m_oi;
     	requires(shooter);
     	requires(conveyor);
     }

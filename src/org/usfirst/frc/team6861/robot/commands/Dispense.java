@@ -12,12 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Dispense extends Command {
 	private Shooter shooter;
 	private Conveyor conveyor;
-	private OI m_oi;
     public Dispense(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	this.shooter=m_oi.getShooter();
-    	this.m_oi = m_oi;
     	this.conveyor=m_oi.getConveyor();
     	requires(shooter);
     	requires(conveyor);

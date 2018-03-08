@@ -9,11 +9,8 @@ package org.usfirst.frc.team6861.robot;
 
 import org.usfirst.frc.team6861.robot.commands.CenterAuton;
 import org.usfirst.frc.team6861.robot.commands.CrossLineAuton;
-import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
 import org.usfirst.frc.team6861.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team6861.robot.subsystems.Intake;
 import org.usfirst.frc.team6861.robot.subsystems.Ramp;
-import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
