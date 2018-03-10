@@ -15,8 +15,8 @@ public class Dispense extends Command {
     public Dispense(OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	this.shooter=m_oi.getShooter();
     	this.conveyor=m_oi.getConveyor();
+    	this.shooter=m_oi.getShooter();
     	requires(shooter);
     	requires(conveyor);
     }
@@ -29,7 +29,7 @@ public class Dispense extends Command {
     protected void execute() {
     	
     	conveyor.driveConveyor(1);
-    	shooter.driveShooter(0.35);
+    	shooter.driveShooter(0.15);
     	
     } 
 

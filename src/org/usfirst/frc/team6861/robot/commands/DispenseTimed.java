@@ -2,28 +2,27 @@ package org.usfirst.frc.team6861.robot.commands;
 
 import org.usfirst.frc.team6861.robot.OI;
 import org.usfirst.frc.team6861.robot.subsystems.Conveyor;
-import org.usfirst.frc.team6861.robot.subsystems.Intake;
+import org.usfirst.frc.team6861.robot.subsystems.Shooter;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.TimedCommand;
 
 /**
  *
  */
-public class ConveyorIntakeForward extends Command {
+public class DispenseTimed extends TimedCommand {
+	private Shooter shooter;
 	private Conveyor conveyor;
-	private DigitalInput conveyorSensor;
-	private Intake intake;
-	
-	
-    public ConveyorIntakeForward(OI m_oi) {
+	private double timeout;
+    public DispenseTimed(double timeout , OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	super (timeout);
     	this.conveyor=m_oi.getConveyor();
-    	this.intake=m_oi.getIntake();
-    	this.conveyorSensor = m_oi.getConveyorSensor();
+    	this.shooter=m_oi.getShooter();
+    	requires(shooter);
     	requires(conveyor);
-    	requires(intake);
+    	
     }
 
     // Called just before this Command runs the first time
@@ -32,11 +31,11 @@ public class ConveyorIntakeForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (conveyorSensor.get()) {
-    			conveyor.driveConveyor(0.5);
-    			intake.driveIntake(0.75);
-    	}
-    }
+    	
+    	conveyor.driveConveyor(1);
+    	shooter.driveShooter(0.15);
+    	
+    } 
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
@@ -46,13 +45,13 @@ public class ConveyorIntakeForward extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	conveyor.driveConveyor(0);
-    	intake.driveIntake(0);
+    	shooter.driveShooter(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+    	shooter.driveShooter(0);
     	conveyor.driveConveyor(0);
-    	intake.driveIntake(0);
     }
 }

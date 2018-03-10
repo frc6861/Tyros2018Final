@@ -10,6 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 //test
 /**  
  *
@@ -64,6 +65,8 @@ public class DriveTrain extends Subsystem {
    
     public void setMecanumDriveCommand(double ySpeed, double xSpeed, double zRotation, double gyroAngle){
     	mecanumDrive.driveCartesian(ySpeed, xSpeed, zRotation);
+    	SmartDashboard.putBoolean("Proximity Sensor Left", m_oi.getLeftProximitySensor().get());
+    	SmartDashboard.putBoolean("Proximity Sensor Right", m_oi.getRightProximitySensor().get());
     	
     }
 }
