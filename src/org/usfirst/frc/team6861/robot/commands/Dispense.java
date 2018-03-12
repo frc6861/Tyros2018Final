@@ -29,7 +29,7 @@ public class Dispense extends Command {
     protected void execute() {
     	
     	conveyor.driveConveyor(1);
-    	shooter.driveShooter(0.15);
+    	shooter.driveShooter(0.25);
     	
     } 
 

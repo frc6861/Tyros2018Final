@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 public class DispenseTimed extends TimedCommand {
 	private Shooter shooter;
 	private Conveyor conveyor;
-	private double timeout;
+	
     public DispenseTimed(double timeout , OI m_oi) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
