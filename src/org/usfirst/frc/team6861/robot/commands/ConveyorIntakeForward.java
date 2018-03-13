@@ -34,7 +34,7 @@ public class ConveyorIntakeForward extends Command {
     protected void execute() {
     	if (conveyorSensor.get()) {
     			conveyor.driveConveyor(0.5);
-    			intake.driveIntake(0.75);
+    			intake.driveIntake(0.8);
     	}
     }
 

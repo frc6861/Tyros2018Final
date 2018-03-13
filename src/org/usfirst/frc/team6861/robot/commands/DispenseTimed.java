@@ -33,7 +33,7 @@ public class DispenseTimed extends TimedCommand {
     protected void execute() {
     	
     	conveyor.driveConveyor(1);
-    	shooter.driveShooter(0.15);
+    	shooter.driveShooter(0.3);//practice robot is .15
     	
     } 
 
