@@ -24,7 +24,7 @@ public class MoveToSwitchAuton extends TimedCommand {
     protected void initialize() {
     }
 
-    // Called repeatedly when this Command is scheduled to run
+    // Called repeatedly when this Command is scheduled to runk sefb eaiufbesai bt
     protected void execute() {
     	
     	gameData = DriverStation.getInstance().getGameSpecificMessage();
