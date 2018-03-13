@@ -26,9 +26,9 @@ public class Ramp extends Subsystem {
     }
    public void  driveSpark() {
 	   if(oi.isReverseMotor())
-		   spark.set(-0.5);//up should be -0.5
+		   spark.set(-1);//up should be -0.5 for practice
 	   else
-		   spark.set(0.25);//down should be 0.25
+		   spark.set(1);//down should be 0.25
 	
 	   
    }
