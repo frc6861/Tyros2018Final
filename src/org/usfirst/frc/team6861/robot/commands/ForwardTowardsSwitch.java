@@ -21,7 +21,7 @@ public class ForwardTowardsSwitch extends TimedCommand {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-			driveTrain.setMecanumDriveCommand(0, -0.3, 0, 0);
+			driveTrain.setMecanumDriveCommand(0, -0.2, 0, 0);
     	
     }
 
