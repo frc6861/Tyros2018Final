@@ -29,7 +29,7 @@ public class Shoot extends Command {
     protected void execute() {
     	shooter.driveShooter(1);
     	try {
-			Thread.sleep(500);
+			Thread.sleep(750);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
